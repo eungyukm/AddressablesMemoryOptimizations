@@ -75,4 +75,9 @@ public class InventorySystemAddressable : MonoBehaviour
             }
         }
     }
+
+    public void MemoryUnload()
+    {
+        Resources.UnloadUnusedAssets();
+    }
 }
