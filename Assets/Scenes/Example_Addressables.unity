@@ -800,7 +800,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 37328140}
         m_TargetAssemblyTypeName: InventorySystemAddressable, Assembly-CSharp
-        m_MethodName: MemoryUnload
+        m_MethodName: MemoryUnloadAll
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

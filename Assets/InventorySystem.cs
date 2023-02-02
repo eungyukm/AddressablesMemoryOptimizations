@@ -1,31 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class InventorySystem : MonoBehaviour
 {
     public GameObject[] inventoryItems;
     public Transform[] spawnPositions;
-    GameObject[] spawnedObjects;
+    private GameObject[] _spawnedObjects;
 
     void Start()
     {
-        spawnedObjects = new GameObject[inventoryItems.Length];
+        _spawnedObjects = new GameObject[inventoryItems.Length];
     }
 
     public void SpawnItem(int itemNumber)
     {
-        if (spawnedObjects[itemNumber] != null)
+        if (_spawnedObjects[itemNumber] != null)
+        {
             return;
+        }
 
-        spawnedObjects[itemNumber] = GameObject.Instantiate(inventoryItems[itemNumber], spawnPositions[itemNumber].position, spawnPositions[itemNumber].rotation);
+        _spawnedObjects[itemNumber] = Instantiate(inventoryItems[itemNumber],
+            spawnPositions[itemNumber].position, spawnPositions[itemNumber].rotation);
     }
 
     public void DespawnItem(int itemNumber)
     {
-        if (spawnedObjects[itemNumber] == null)
+        if (_spawnedObjects[itemNumber] == null)
             return;
 
-        Destroy(spawnedObjects[itemNumber]);
+        Destroy(_spawnedObjects[itemNumber]);
     }
 }
